@@ -21,8 +21,10 @@ Once the project moves into development, the press release can be used as a touc
 
 ## Sub-Heading ##
   > For students.
+
 ## Summary ##
   > By using REACT, jQuery, and a SQL database, anyone will be able to look up wikipedia articles, and be able to reference back to what they read, to better keep track of what they read. 
+  
 ## Problem ##
   > Forgetting what path you took to lead to which article, and what you read.
 
