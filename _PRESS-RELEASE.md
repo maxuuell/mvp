@@ -17,28 +17,26 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Wikipedia viewer with logged history for easy reference.
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
-
+  > For students.
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
-
+  > By using REACT, jQuery, and a SQL database, anyone will be able to look up wikipedia articles, and be able to reference back to what they read, to better keep track of what they read. 
 ## Problem ##
-  > Describe the problem your product solves.
+  > Forgetting what path you took to lead to which article, and what you read.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > Simply keeping track of your lookups, and what you clicked.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > "Don't let human weakness keep you from achieving your goals."
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Just log on, and get started.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > "I was able to go from mindlessly surfing wikipedia, to actually writing my paper."
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Just log in and try it!
