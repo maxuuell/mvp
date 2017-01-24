@@ -1,7 +1,6 @@
 "use strict";
 
 var ArticleList = function ArticleList(props) {
-  console.log(props);
   return React.createElement(
     "div",
     { className: "articles-container" },

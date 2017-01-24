@@ -24,22 +24,24 @@ class App extends React.Component {
   }
 
   processResponse (response) {
+    var subArticles = [];
+
     for (var i = 0; i < response[1].length; i++) {
-      this.state.articles[i] = {
+      subArticles[i] = {
         title: response[1][i]
       }
     };
 
     for (var i = 0; i < response[2].length; i++) {
-      this.state.articles[i].description = response[2][i];
+      subArticles[i].description = response[2][i];
     }
 
     for (var i = 0; i < response[3].length; i++) {
-      this.state.articles[i].link = response[3][i];
+      subArticles[i].link = response[3][i];
     }
-
-    console.log(this.state.articles);
     
+    this.setState({articles: subArticles})
+    console.log("state of articles: ", this.state.articles)
   }
 
   render () {

@@ -1,5 +1,4 @@
 var ArticleList = (props) => {
-  console.log(props);
   return (
   <div className="articles-container">
     {props.articles.map((article) => 
