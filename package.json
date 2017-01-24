@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel . --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled --source-maps inline --watch"
+    "build": "babel . --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled,server --source-maps inline --watch"
   },
   "repository": {
     "type": "git",
@@ -29,12 +29,6 @@
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.22.0",
     "babel-watch": "^2.0.5",
-    "babelify": "^7.3.0",
-    "grunt": "^1.0.1",
-    "grunt-browserify": "^5.0.0",
-    "grunt-concurrent": "^2.3.1",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-nodemon": "^0.4.2",
-    "open": "0.0.5"
+    "babelify": "^6.4.0"
   }
 }

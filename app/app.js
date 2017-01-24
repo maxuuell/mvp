@@ -18,3 +18,17 @@ var render = function (response) {
 }
 
 $button.on('click', sendReqeust);
+
+var sendRequest = () => {
+  // set script tag with source to api
+  console.log("Clicked!");
+  $script.src = `https://en.wikipedia.org/w/api.php?action=opensearch&format=json&callback=processResponse&search=${$inputValue}`;
+
+  $body.append($scipt);
+
+  return false;
+}
+
+var processResponse = (response) => {
+  console.log("It worked!", response);
+}
