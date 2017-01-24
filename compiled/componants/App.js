@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -17,37 +17,36 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      $body: $('body'),
-      $button: $('#button'),
-      $entry: $('#entry'),
-      // $inputValue : this.$entry.val(),
-      $script: $('script')
+      // $body : $('body'),
+      // $button : $('#button'),
+      // $entry : $('#entry'),
+      // // $inputValue : this.$entry.val(),
+      // $script : $('script')
     };
     return _this;
   }
 
+  // sendRequest () {
+  //   // set script tag with source to api
+  //   console.log("Clicked!");
+  //   $script.src = `https://en.wikipedia.org/w/api.php?action=opensearch&format=json&callback=processResponse&search=${$inputValue}`;
+
+  //   $body.append($scipt);
+
+  //   return false;
+  // }
+
+  // processResponse (response) {
+  //   console.log("It worked!", response);
+  // }
+
   _createClass(App, [{
-    key: 'sendRequest',
-    value: function sendRequest() {
-      // set script tag with source to api
-      console.log("Clicked!");
-      $script.src = 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&callback=processResponse&search=' + $inputValue;
-
-      $body.append($scipt);
-
-      return false;
-    }
-  }, {
-    key: 'processResponse',
-    value: function processResponse(response) {
-      console.log("It worked!", response);
-    }
-  }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       return React.createElement(
-        'div',
+        "div",
         null,
+        React.createElement(SearchBar, null),
         React.createElement(ArticleList, { video: this.state })
       );
     }

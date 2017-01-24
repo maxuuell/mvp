@@ -1,0 +1,23 @@
+var WikiSearch = (input) => {
+
+  var $script = $('script');
+
+  $script.src = `https://en.wikipedia.org/w/api.php?action=opensearch&format=json&callback=processResponse&search=${input}`;
+
+  $body.append($script);
+  return false;
+}
+
+var sendRequest = () => {
+  // set script tag with source to api
+  console.log("Clicked!");
+  $script.src = `https://en.wikipedia.org/w/api.php?action=opensearch&format=json&callback=processResponse&search=${$inputValue}`;
+
+  $body.append($scipt);
+
+  return false;
+}
+
+var processResponse = (response) => {
+  console.log("It worked!", response);
+}

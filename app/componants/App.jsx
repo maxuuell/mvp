@@ -3,11 +3,11 @@ class App extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
-      $body : $('body'),
-      $button : $('#button'),
-      $entry : $('#entry'),
-      // $inputValue : this.$entry.val(),
-      $script : $('script')
+      // $body : $('body'),
+      // $button : $('#button'),
+      // $entry : $('#entry'),
+      // // $inputValue : this.$entry.val(),
+      // $script : $('script')
     }
   }
 
@@ -28,7 +28,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <SearchBar sendRequest={this.sendRequest.bind(this)} />
+        <SearchBar />
         <ArticleList video={this.state} />
       </div>
     )
