@@ -1,35 +1,56 @@
 class App extends React.Component {
 
-  constructor (props) {
-    super (props);
+  constructor(props) {
+    super(props);
     this.state = {
-      // $body : $('body'),
-      // $button : $('#button'),
-      // $entry : $('#entry'),
-      // // $inputValue : this.$entry.val(),
-      // $script : $('script')
-    }
+      value: '',
+      articles: []
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.processResponse = this.processResponse.bind(this);
   }
 
-  // sendRequest () {
-  //   // set script tag with source to api
-  //   console.log("Clicked!");
-  //   $script.src = `https://en.wikipedia.org/w/api.php?action=opensearch&format=json&callback=processResponse&search=${$inputValue}`;
+  handleChange(value) {
+    this.setState({value: value});
+  }
 
-  //   $body.append($scipt);
+  handleSubmit(event) {
 
-  //   return false;
-  // }
+    $.getJSON(`https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=${this.state.value}&callback=?`, (response) => {this.processResponse(response)})
+    
+    event.preventDefault();
+  }
 
-  // processResponse (response) {
-  //   console.log("It worked!", response);
-  // }
+  processResponse (response) {
+    for (var i = 0; i < response[1].length; i++) {
+      this.state.articles[i] = {
+        title: response[1][i]
+      }
+    };
+
+    for (var i = 0; i < response[2].length; i++) {
+      this.state.articles[i].description = response[2][i];
+    }
+
+    for (var i = 0; i < response[3].length; i++) {
+      this.state.articles[i].link = response[3][i];
+    }
+
+    console.log(this.state.articles);
+    
+  }
 
   render () {
     return (
       <div>
-        <SearchBar />
-        <ArticleList video={this.state} />
+        <SearchBar 
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          value={this.state.value}
+        />
+        <ArticleList articles={this.state.articles} />
       </div>
     )
   }

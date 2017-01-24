@@ -1,10 +1,13 @@
 var ArticleList = (props) => {
+  console.log(props);
   return (
   <div className="articles-container">
+    {props.articles.map((article) => 
     <ArticleListEntry 
-      title={props[0]}
-      article={props[1]}
-      link={props[2]} />
+      title={article.title}
+      description={article.description}
+      link={article.link} />
+    )}
   </div>
   )
 }

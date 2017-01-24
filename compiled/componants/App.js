@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -17,37 +17,63 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      // $body : $('body'),
-      // $button : $('#button'),
-      // $entry : $('#entry'),
-      // // $inputValue : this.$entry.val(),
-      // $script : $('script')
+      value: '',
+      articles: []
     };
+
+    _this.handleChange = _this.handleChange.bind(_this);
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.processResponse = _this.processResponse.bind(_this);
     return _this;
   }
 
-  // sendRequest () {
-  //   // set script tag with source to api
-  //   console.log("Clicked!");
-  //   $script.src = `https://en.wikipedia.org/w/api.php?action=opensearch&format=json&callback=processResponse&search=${$inputValue}`;
-
-  //   $body.append($scipt);
-
-  //   return false;
-  // }
-
-  // processResponse (response) {
-  //   console.log("It worked!", response);
-  // }
-
   _createClass(App, [{
-    key: "render",
+    key: 'handleChange',
+    value: function handleChange(value) {
+      this.setState({ value: value });
+    }
+  }, {
+    key: 'handleSubmit',
+    value: function handleSubmit(event) {
+      var _this2 = this;
+
+      $.getJSON('https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=' + this.state.value + '&callback=?', function (response) {
+        _this2.processResponse(response);
+      });
+
+      event.preventDefault();
+    }
+  }, {
+    key: 'processResponse',
+    value: function processResponse(response) {
+      for (var i = 0; i < response[1].length; i++) {
+        this.state.articles[i] = {
+          title: response[1][i]
+        };
+      };
+
+      for (var i = 0; i < response[2].length; i++) {
+        this.state.articles[i].description = response[2][i];
+      }
+
+      for (var i = 0; i < response[3].length; i++) {
+        this.state.articles[i].link = response[3][i];
+      }
+
+      console.log(this.state.articles);
+    }
+  }, {
+    key: 'render',
     value: function render() {
       return React.createElement(
-        "div",
+        'div',
         null,
-        React.createElement(SearchBar, null),
-        React.createElement(ArticleList, { video: this.state })
+        React.createElement(SearchBar, {
+          handleSubmit: this.handleSubmit,
+          handleChange: this.handleChange,
+          value: this.state.value
+        }),
+        React.createElement(ArticleList, { articles: this.state.articles })
       );
     }
   }]);
