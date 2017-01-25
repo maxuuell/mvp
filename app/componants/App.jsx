@@ -41,7 +41,7 @@ class App extends React.Component {
     }
     
     this.setState({articles: subArticles})
-    console.log("state of articles: ", this.state.articles)
+
   }
 
   render () {

@@ -1,6 +1,6 @@
 var ArticleList = (props) => {
   return (
-  <div className="articles-container">
+  <div className="container">
     {props.articles.map((article) => 
     <ArticleListEntry 
       title={article.title}

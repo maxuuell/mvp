@@ -3,7 +3,7 @@
 var ArticleList = function ArticleList(props) {
   return React.createElement(
     "div",
-    { className: "articles-container" },
+    { className: "container" },
     props.articles.map(function (article) {
       return React.createElement(ArticleListEntry, {
         title: article.title,

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -28,23 +28,23 @@ var App = function (_React$Component) {
   }
 
   _createClass(App, [{
-    key: "handleChange",
+    key: 'handleChange',
     value: function handleChange(value) {
       this.setState({ value: value });
     }
   }, {
-    key: "handleSubmit",
+    key: 'handleSubmit',
     value: function handleSubmit(event) {
       var _this2 = this;
 
-      $.getJSON("https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=" + this.state.value + "&callback=?", function (response) {
+      $.getJSON('https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=' + this.state.value + '&callback=?', function (response) {
         _this2.processResponse(response);
       });
 
       event.preventDefault();
     }
   }, {
-    key: "processResponse",
+    key: 'processResponse',
     value: function processResponse(response) {
       var subArticles = [];
 
@@ -63,13 +63,12 @@ var App = function (_React$Component) {
       }
 
       this.setState({ articles: subArticles });
-      console.log("state of articles: ", this.state.articles);
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       return React.createElement(
-        "div",
+        'div',
         null,
         React.createElement(SearchBar, {
           handleSubmit: this.handleSubmit,
