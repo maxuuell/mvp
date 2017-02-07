@@ -1,6 +1,9 @@
 "use strict";
 
-var ArticleListEntry = function ArticleListEntry(props) {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var ArticleListEntry = exports.ArticleListEntry = function ArticleListEntry(props) {
   return React.createElement(
     "div",
     { className: "row" },
@@ -37,5 +40,3 @@ var ArticleListEntry = function ArticleListEntry(props) {
     )
   );
 };
-
-window.ArticleListEntry = ArticleListEntry;

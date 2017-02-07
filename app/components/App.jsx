@@ -1,4 +1,9 @@
-class App extends React.Component {
+import { ArticleList } from "./ArticleList.jsx";
+import { ArticleListEntry } from "./ArticleListEntry.jsx";
+import { SearchBar } from "./SearchBar.jsx";
+import React from "react";
+
+export default class App extends React.Component {
 
   constructor(props) {
     super(props);
@@ -59,4 +64,3 @@ class App extends React.Component {
   
 }
 
-window.App = App;

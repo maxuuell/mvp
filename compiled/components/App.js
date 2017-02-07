@@ -1,6 +1,16 @@
-'use strict';
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _ArticleList = require("ArticleList.jsx");
+
+var _ArticleListEntry = require("ArticleListEntry.jsx");
+
+var _SearchBar = require("SearchBar.jsx");
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -28,23 +38,23 @@ var App = function (_React$Component) {
   }
 
   _createClass(App, [{
-    key: 'handleChange',
+    key: "handleChange",
     value: function handleChange(value) {
       this.setState({ value: value });
     }
   }, {
-    key: 'handleSubmit',
+    key: "handleSubmit",
     value: function handleSubmit(event) {
       var _this2 = this;
 
-      $.getJSON('https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=' + this.state.value + '&callback=?', function (response) {
+      $.getJSON("https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=" + this.state.value + "&callback=?", function (response) {
         _this2.processResponse(response);
       });
 
       event.preventDefault();
     }
   }, {
-    key: 'processResponse',
+    key: "processResponse",
     value: function processResponse(response) {
       var subArticles = [];
 
@@ -65,17 +75,17 @@ var App = function (_React$Component) {
       this.setState({ articles: subArticles });
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       return React.createElement(
-        'div',
+        "div",
         null,
-        React.createElement(SearchBar, {
+        React.createElement(_SearchBar.SearchBar, {
           handleSubmit: this.handleSubmit,
           handleChange: this.handleChange,
           value: this.state.value
         }),
-        React.createElement(ArticleList, { articles: this.state.articles })
+        React.createElement(_ArticleList.ArticleList, { articles: this.state.articles })
       );
     }
   }]);
@@ -83,4 +93,4 @@ var App = function (_React$Component) {
   return App;
 }(React.Component);
 
-window.App = App;
+exports.default = App;

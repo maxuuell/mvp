@@ -1,6 +1,9 @@
 "use strict";
 
-var SearchBar = function SearchBar(_ref) {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var SearchBar = exports.SearchBar = function SearchBar(_ref) {
   var handleSubmit = _ref.handleSubmit,
       handleChange = _ref.handleChange,
       value = _ref.value;
@@ -16,7 +19,7 @@ var SearchBar = function SearchBar(_ref) {
       React.createElement(
         "div",
         { className: "input-field col s12" },
-        React.createElement("input", { type: "text", placeholder: "example: bogan", value: value, onChange: function onChange(e) {
+        React.createElement("input", { type: "text", placeholder: "example: Star Wars", value: value, onChange: function onChange(e) {
             return handleChange(e.target.value);
           } }),
         React.createElement(
@@ -33,5 +36,3 @@ var SearchBar = function SearchBar(_ref) {
     )
   );
 };
-
-window.SearchBar = SearchBar;

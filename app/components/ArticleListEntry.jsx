@@ -1,4 +1,6 @@
-var ArticleListEntry = (props) => {
+import React from "react";
+
+export var ArticleListEntry = (props) => {
   return (
     <div className="row">
       <div className="col s12 m6">
@@ -15,5 +17,3 @@ var ArticleListEntry = (props) => {
     </div>
   )
 }
-
-window.ArticleListEntry = ArticleListEntry;
