@@ -3,7 +3,7 @@ import React from "react";
 
 export var ArticleList = (props) => {
   return (
-  <div className="article-list-container">
+  <div className="article-list-container container">
     {props.articles.map((article, index) => 
     <ArticleListEntry 
       title={article.title}
